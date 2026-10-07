@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d253f;
+    padding: 20px 60px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.list {
+    display: flex;
+    gap: 40px;
+    color: #fff;
+    list-style: none;
+}
+
+a:visited {
+    color: #fff;
+}
+
+.activeLink {
+    font-weight: bold;
+}

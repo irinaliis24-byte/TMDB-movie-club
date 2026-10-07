@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #0d253f;
+    min-height: 60px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
