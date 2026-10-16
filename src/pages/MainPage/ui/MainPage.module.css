@@ -22,8 +22,17 @@
     color: white;
 }
 
+.welcomeSubtitle .welcomeTitle .searchLabel {
+    color: white;
+}
+
 .backgroundMovie {
     align-self: end;
     color: white;
     font-weight: bold;
+}
+
+.movieList {
+    display: flex;
+    justify-content: space-between;
 }

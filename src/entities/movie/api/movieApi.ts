@@ -5,9 +5,26 @@ export const movieApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
         getPopularMovies: build.query<ResponseMovie, void>({
             query: () => "/movie/popular",
-            providesTags: ["Movie"],
+            providesTags: ["PopularMovie"],
+        }),
+        getTopRatedMovies: build.query<ResponseMovie, void>({
+            query: () => "/movie/top_rated",
+            providesTags: ["TopRatedMovie"],
+        }),
+        getUpcomingMovies: build.query<ResponseMovie, void>({
+            query: () => "/movie/upcoming",
+            providesTags: ["UpcomingMovie"],
+        }),
+        getNowPlayingMovies: build.query<ResponseMovie, void>({
+            query: () => "/movie/now_playing",
+            providesTags: ["NowPlayingMovie"],
         }),
     }),
 })
 
-export const {useGetPopularMoviesQuery} = movieApi
+export const {
+    useGetPopularMoviesQuery,
+    useGetTopRatedMoviesQuery,
+    useGetUpcomingMoviesQuery,
+    useGetNowPlayingMoviesQuery
+} = movieApi

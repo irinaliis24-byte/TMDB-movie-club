@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const baseApi = createApi({
   reducerPath: "moviesApi",
-  tagTypes: ["Movie", "Configuration"],
+  tagTypes: ["PopularMovie", "TopRatedMovie", "UpcomingMovie", "NowPlayingMovie", "Configuration"],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BASE_URL,
     prepareHeaders: (headers) => {

@@ -1,12 +1,12 @@
 export type ResponseMovie = {
     page: number
-    results: MovieItem[]
+    results: MovieData[]
     total_pages: number
     total_results: number
 }
 
 
-export type MovieItem = {
+export type MovieData = {
     adult: boolean
     backdrop_path: string
     genre_ids: number[]

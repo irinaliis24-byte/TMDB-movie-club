@@ -1,0 +1,22 @@
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleLink {
+    color: var(--text-color);
+    margin-top: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+.liked {
+    background-color: darkred;
+    color: white;
+}
+
+.defaultLike {
+    color: dimgrey;
+}

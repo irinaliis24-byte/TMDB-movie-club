@@ -5,45 +5,17 @@ import s from './App.module.css'
 
 function App() {
 
-  return (
-    <div className={s.pageWrapper}>
-        <Header />
-        <div className={s.container}>
-            <Routing/>
+    return (
+        <div>
+            <Header/>
+            <div className={s.pageWrapper}>
+                <div className={s.container}>
+                    <Routing/>
+                </div>
+                <Footer/>
+            </div>
         </div>
-        <Footer />
-    </div>
-  )
+    )
 }
 
 export default App
-
-//
-// src/
-// ├── app/
-// ├── pages/
-// │   ├── MainPage/
-// │   ├── CategoryMoviesPage/
-// │   ├── FilteredMoviesPage/
-// │   ├── SearchPage/
-// │   └── FavoritesPage/
-// │
-// ├── widgets/
-// │   ├── Header/
-// │   ├── MovieList/
-// │   └── MovieFilters/
-// │
-// ├── features/
-// │   ├── searchMovie/
-// │   ├── filterMovies/
-// │   ├── sortMovies/
-// │   └── addToFavorites/
-// │
-// ├── entities/
-// │   └── movie/
-// │
-// └── shared/
-//     ├── ui/
-//     ├── api/
-//     ├── lib/
-//     └── styles/

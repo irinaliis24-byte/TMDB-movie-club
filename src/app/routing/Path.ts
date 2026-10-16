@@ -1,7 +1,7 @@
 export const Path = {
     MainPage: '/',
-    CategoryMovies: '/category_movies',
-    FilteredMovies: '/filtered_movies',
+    CategoryMovies: '/movies',
+    FilteredMovies: '/filtered-movies',
     Search: '/search',
     Favorites: '/favorites',
     NotFound: '*',
