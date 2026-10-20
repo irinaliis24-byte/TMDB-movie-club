@@ -2,7 +2,7 @@ import s from './Header.module.css'
 import logo from '@/../assets/logo.svg'
 import {Path} from '@/app/routing';
 import {Link, NavLink} from 'react-router'
-import {Switch} from '@/shared/ui/switch/switch.tsx';
+import {Switch} from '@/shared/ui/Switch';
 import {useAppDispatch, useAppSelector} from '@/app/model/hooks';
 import {changeThemeModeAC, selectThemeMode} from '@/app/model';
 import {useEffect} from 'react';

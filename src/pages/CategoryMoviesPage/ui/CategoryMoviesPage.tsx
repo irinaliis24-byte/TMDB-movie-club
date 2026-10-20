@@ -1,5 +1,5 @@
 import s from './CategoryMoviesPage.module.css';
-import {NavLink, useParams} from 'react-router';
+import {useParams} from 'react-router';
 import {
     useGetNowPlayingMoviesQuery,
     useGetPopularMoviesQuery,
@@ -7,25 +7,32 @@ import {
     useGetUpcomingMoviesQuery
 } from '@/entities/movie/api/movieApi.ts';
 import {MovieList} from '@/widgets/MovieList/MovieList.tsx';
-import {createMovieCategoryData} from '@/shared/utils/createMovieCategoryData.ts';
+import {createMovieCategoryData} from '@/shared/utils';
+import {useEffect, useState} from 'react';
+import {ButtonLink} from '@/shared/ui/ButtonLink/ButtonLink.tsx';
 
 
 export const CategoryMoviesPage = () => {
     const { category } = useParams();
+    const [currentPage, setCurrentPage] = useState(1)
 
-    const {data: popular} = useGetPopularMoviesQuery(undefined, {
+
+    const {data: popular} = useGetPopularMoviesQuery({page: currentPage}, {
         skip: category !== 'popular',
     })
-    const {data: upcoming} = useGetUpcomingMoviesQuery(undefined, {
+    const {data: upcoming} = useGetUpcomingMoviesQuery({page: currentPage}, {
         skip: category !== 'upcoming',
     })
-    const {data: topRated} = useGetTopRatedMoviesQuery(undefined, {
+    const {data: topRated} = useGetTopRatedMoviesQuery({page: currentPage}, {
         skip: category !== 'top-rated',
     })
-    const {data: nowPlaying} = useGetNowPlayingMoviesQuery(undefined, {
+    const {data: nowPlaying} = useGetNowPlayingMoviesQuery({page: currentPage}, {
         skip: category !== 'now-playing',
     })
 
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [category]);
 
 
     const categorySections = createMovieCategoryData({popular, nowPlaying, topRated, upcoming})
@@ -35,12 +42,12 @@ export const CategoryMoviesPage = () => {
     return (
         <section>
             <nav className={s.categoryButtons}>
-                <NavLink to="/movies/popular">Popular</NavLink>
-                <NavLink to="/movies/upcoming">Upcoming</NavLink>
-                <NavLink to="/movies/top-rated">Top Rated</NavLink>
-                <NavLink to="/movies/now-playing">Now Playing</NavLink>
+                <ButtonLink path="/movies/popular">Popular</ButtonLink>
+                <ButtonLink path="/movies/upcoming">Upcoming</ButtonLink>
+                <ButtonLink path="/movies/top-rated">Top Rated</ButtonLink>
+                <ButtonLink path="/movies/now-playing">Now Playing</ButtonLink>
             </nav>
-            <MovieList category={currentCategory}/>
+            <MovieList category={currentCategory} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </section>
 
     )

@@ -1,0 +1,23 @@
+.button {
+    display: block;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    background: var(--background-color);
+    border-radius: 3px;
+    border: var(--primary-color) solid 1px;
+    cursor: pointer;
+    padding: 8px 16px;
+    width: fit-content;
+}
+
+.button:hover {
+    background: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.activeLink {
+    font-size: 0.8em;
+    font-weight: 700;
+}

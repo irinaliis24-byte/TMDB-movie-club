@@ -1,6 +1,6 @@
 import s from './MovieItem.module.css'
 import {default_posters, type PosterSize} from '@/shared/constants';
-import {type FavoriteMovie} from '@/shared/utils/getFavorites.ts';
+import {type FavoriteMovie} from '@/shared/utils';
 import {useAppDispatch, useAppSelector} from '@/app/model/hooks';
 import {selectIsFavorite, toggleFavorite} from '@/pages/FavoritesPage/model/favoritesSlice.ts';
 

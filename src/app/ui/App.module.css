@@ -5,6 +5,7 @@
     box-sizing: border-box;
     padding-top: 60px;
     background-color: var(--background-color);
+    overflow-x: clip;
 }
 
 .container {

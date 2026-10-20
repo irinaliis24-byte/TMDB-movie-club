@@ -1,6 +1,6 @@
 import {SearchMovieForm} from '@/features/searchMovie';
 import s from './MainPage.module.css'
-import {getRandomNumber} from '@/shared/utils/getRandomNumber.ts';
+import {getRandomNumber} from '@/shared/utils';
 import {
     useGetNowPlayingMoviesQuery,
     useGetPopularMoviesQuery,
@@ -15,10 +15,10 @@ import {createMovieCategoryData} from '@/shared/utils/createMovieCategoryData.ts
 
 
 export const MainPage = () => {
-    const {data: popular} = useGetPopularMoviesQuery()
-    const {data: upcoming} = useGetUpcomingMoviesQuery()
-    const {data: topRated} = useGetTopRatedMoviesQuery()
-    const {data: nowPlaying} = useGetNowPlayingMoviesQuery()
+    const {data: popular} = useGetPopularMoviesQuery({page: 1})
+    const {data: upcoming} = useGetUpcomingMoviesQuery({page: 1})
+    const {data: topRated} = useGetTopRatedMoviesQuery({page: 1})
+    const {data: nowPlaying} = useGetNowPlayingMoviesQuery({page: 1})
 
     const {data: details} = useGetDetailsQuery()
     const [coverMovie, setCoverMovie] = useState<MovieData | null>(null)
@@ -34,9 +34,9 @@ export const MainPage = () => {
 
 
     const baseUrl = details && details.images.base_url
-    const bgUrl = coverMovie &&  coverMovie.backdrop_path
+    const bgUrl = coverMovie && coverMovie.backdrop_path
 
-    const inlineStyle = bgUrl ? { backgroundImage: `url('${baseUrl}original${bgUrl}')` } : {};
+    const inlineStyle = bgUrl ? {backgroundImage: `url('${baseUrl}original${bgUrl}')`} : {};
 
     return <section>
         <section className={s.backgroundContainer} style={inlineStyle}>
@@ -46,8 +46,8 @@ export const MainPage = () => {
                 <div className={s.searchLabel}>Discover thousands of movies</div>
                 <SearchMovieForm/>
             </div>
-            <div className={s.backgroundMovie}>{coverMovie && coverMovie.title}</div>
+            <div className={s.backgroundMovieTitle}>{coverMovie && coverMovie.title}</div>
         </section>
-        { movieBlockData.map((item) => <MoviesBlock key={item.title} blockData={item} baseUrl={baseUrl}/>)}
+        {movieBlockData.map((item) => <MoviesBlock key={item.title} blockData={item} baseUrl={baseUrl}/>)}
     </section>
 }

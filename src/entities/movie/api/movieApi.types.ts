@@ -22,3 +22,9 @@ export type MovieData = {
     vote_average: number
     vote_count: number
 }
+
+export type MovieParams = {
+    page: number
+    language?: string
+    query?: string
+}

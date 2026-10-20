@@ -1,4 +1,4 @@
-import s from './switch.module.css'
+import s from './Switch.module.css'
 
 type Props = {
     callback: () => void
