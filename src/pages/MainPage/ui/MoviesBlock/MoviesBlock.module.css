@@ -1,0 +1,15 @@
+.wrapper {
+    margin-top: 80px;
+}
+
+.blockHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.movieBlock {
+    display: flex;
+    justify-content: space-between;
+}

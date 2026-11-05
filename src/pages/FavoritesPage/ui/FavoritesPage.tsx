@@ -3,6 +3,8 @@ import {poster_sizes} from '@/shared/constants';
 import {useGetDetailsQuery} from '@/shared/api/configApi.ts';
 import {useAppSelector} from '@/app/model/hooks';
 import {selectFavorites} from '@/pages/FavoritesPage/model/favoritesSlice.ts';
+import {BlockTitle} from '@/shared/ui/BlockTitle';
+import s from './FavoritesPage.module.css'
 
 export const FavoritesPage = () => {
     const favorites = useAppSelector(selectFavorites)
@@ -10,8 +12,8 @@ export const FavoritesPage = () => {
     const baseUrl = details && details.images.base_url
 
     return (
-        <div>
-            <h2>FavoritesPage</h2>
+        <div className={s.favoritesPage}>
+            <BlockTitle>Favorite movies</BlockTitle>
             <div style={{display: 'flex', gap: '16px'}}>{favorites.map((movie) => (
                 <MovieItem key={movie.id} movie={movie} posterSize={poster_sizes.w185} itemWidth={'185px'} baseUrl={baseUrl}/>
             ))}</div>

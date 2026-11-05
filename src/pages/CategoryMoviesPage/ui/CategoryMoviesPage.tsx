@@ -5,11 +5,12 @@ import {
     useGetPopularMoviesQuery,
     useGetTopRatedMoviesQuery,
     useGetUpcomingMoviesQuery
-} from '@/entities/movie/api/movieApi.ts';
+} from '@/entities/movie/api/movieListApi.ts';
 import {MovieList} from '@/widgets/MovieList/MovieList.tsx';
 import {createMovieCategoryData} from '@/shared/utils';
 import {useEffect, useState} from 'react';
-import {ButtonLink} from '@/shared/ui/ButtonLink/ButtonLink.tsx';
+import {ButtonLink} from '@/shared/ui/ButtonLink';
+import {BlockTitle} from '@/shared/ui/BlockTitle';
 
 
 export const CategoryMoviesPage = () => {
@@ -38,6 +39,7 @@ export const CategoryMoviesPage = () => {
     const categorySections = createMovieCategoryData({popular, nowPlaying, topRated, upcoming})
 
     const currentCategory = categorySections.find((c) => c.path === category)
+    if (!currentCategory) return null;
 
     return (
         <section>
@@ -47,7 +49,10 @@ export const CategoryMoviesPage = () => {
                 <ButtonLink path="/movies/top-rated">Top Rated</ButtonLink>
                 <ButtonLink path="/movies/now-playing">Now Playing</ButtonLink>
             </nav>
-            <MovieList category={currentCategory} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            <div className={s.wrapper}>
+                <BlockTitle>{currentCategory.title}</BlockTitle>
+                <MovieList category={currentCategory} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            </div>
         </section>
 
     )

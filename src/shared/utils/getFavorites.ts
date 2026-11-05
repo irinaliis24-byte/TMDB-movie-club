@@ -3,7 +3,7 @@ import {localstorage_key} from '@/shared/constants';
 export type FavoriteMovie = {
     id: number;
     title: string;
-    poster_path: string;
+    poster_path: string | null;
     vote_average: number
 }
 

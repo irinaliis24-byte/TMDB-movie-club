@@ -1,0 +1,21 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.movieDetails {
+    display: flex;
+    gap: 28px;
+    margin-top: 32px;
+}
+
+.moviePoster {
+    max-width: 300px;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

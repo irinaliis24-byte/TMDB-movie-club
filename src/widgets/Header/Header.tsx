@@ -1,5 +1,5 @@
 import s from './Header.module.css'
-import logo from '@/../assets/logo.svg'
+import logo from '../../../assets/images/logo.svg'
 import {Path} from '@/app/routing';
 import {Link, NavLink} from 'react-router'
 import {Switch} from '@/shared/ui/Switch';
@@ -17,7 +17,6 @@ const navItems = [
 
 export const Header = () => {
     const themeMode = useAppSelector(selectThemeMode)
-    //const theme = getTheme(themeMode)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -36,7 +35,7 @@ export const Header = () => {
                     <li key={item.to}>
                         <NavLink
                             to={item.to}
-                            className={({ isActive }) => `link ${isActive ? s.activeLink : ''}`}
+                            className={({ isActive }) => `${s.link} ${isActive ? s.activeLink : ''}`}
                         >
                             {item.label}
                         </NavLink>

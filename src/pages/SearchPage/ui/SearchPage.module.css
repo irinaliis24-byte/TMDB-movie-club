@@ -1,0 +1,6 @@
+.searchBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin: 80px 0 36px;
+}

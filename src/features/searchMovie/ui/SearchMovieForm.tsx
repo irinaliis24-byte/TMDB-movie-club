@@ -18,7 +18,7 @@ export const SearchMovieForm = () => {
     };
 
     return <form className={s.searchForm} onSubmit={handleSubmit}>
-        <input type="search" value={searchValue}
+        <input type="search" value={searchValue} name='q'
                onChange={(event) => setSearchValue(event.currentTarget.value)}
                placeholder="Search movie..."/>
         <button type="submit" disabled={!searchValue}>Search</button>

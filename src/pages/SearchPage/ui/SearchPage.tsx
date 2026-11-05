@@ -1,8 +1,10 @@
 import {SearchMovieForm} from '@/features/searchMovie';
 import {useSearchParams} from 'react-router';
-import {useSearchMoviesByTitleQuery} from '@/entities/movie/api/movieApi.ts';
+import {useSearchMoviesByTitleQuery} from '@/entities/movie/api/movieListApi.ts';
 import {MovieList} from '@/widgets/MovieList/MovieList.tsx';
 import {useEffect, useState} from 'react';
+import {BlockTitle} from '@/shared/ui/BlockTitle';
+import s from './SearchPage.module.css'
 
 export const SearchPage = () => {
     const [searchParams] = useSearchParams();
@@ -44,10 +46,14 @@ export const SearchPage = () => {
     }
 
     return (
-        <div>
-            <h2>Search</h2>
-            <SearchMovieForm/>
-            {content() || <MovieList movies={data?.results ?? []} currentPage={currentPage} setCurrentPage={setCurrentPage} pagesCount={data?.total_pages}/>}
-        </div>
+        <>
+            <div className={s.searchBlock}>
+                <BlockTitle>Search</BlockTitle>
+                <SearchMovieForm/>
+            </div>
+            {content() ||
+                <MovieList movies={data?.results ?? []} currentPage={currentPage} setCurrentPage={setCurrentPage}
+                           pagesCount={data?.total_pages}/>}
+        </>
     )
 }

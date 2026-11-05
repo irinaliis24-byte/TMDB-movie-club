@@ -1,0 +1,6 @@
+.favoritesPage {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin-top: 80px;
+}

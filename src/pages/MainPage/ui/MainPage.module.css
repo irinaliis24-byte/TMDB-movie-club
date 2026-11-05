@@ -7,40 +7,68 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--primary-color);
+    background-color: var(--tertiary-color);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 700px;
 
-    padding: 16px max(16px, calc((100vw - 1200px) / 2));
+    padding: 120px max(16px, calc((100vw - 1200px) / 2)) 16px;
+    margin-bottom: 150px;
+}
+
+.backgroundContainer::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, var(--background-color) 100%);
+    pointer-events: none;
 }
 
 .welcomeBlock {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     color: white;
+    z-index: 1;
 }
 
-.welcomeSubtitle .welcomeTitle .searchLabel {
-    color: white;
+.searchLabel {
+    font-family: var(--font-main), sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    padding-left: 8px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.welcomeSubtitle {
+    font-family: var(--font-main), sans-serif;
+    font-size: var(--font-size-m);
+    color: var(--primary-color);
+    padding-left: 8px;
+}
+
+.welcomeTitle {
+    font-family: var(--font-heading), sans-serif;
+    font-size: var(--font-size-h1);
+    -webkit-text-stroke: 2px var(--text-color);
+    color: transparent;
 }
 
 .backgroundMovieTitle {
-    align-self: end;
-    color: white;
-    font-weight: bold;
-}
-
-.blockTitle {
     display: flex;
-    justify-content: space-between;
+    gap: 12px;
     align-items: center;
-    margin: 28px 0 12px;
-}
+    margin-bottom: 24px;
 
-.movieList {
-    display: flex;
-    justify-content: space-between;
+    font-family: var(--font-main), sans-serif;
+    font-size: var(--font-size-base);
+    align-self: end;
+    color: var(--text-color);
+    font-weight: bold;
+    z-index: 1;
 }

@@ -4,7 +4,13 @@
     align-items: center;
     gap: 16px;
     text-decoration: none;
-    margin: 16px 0;
+    margin: 24px 0 20px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
 }
 
 .activeLink {

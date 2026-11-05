@@ -1,4 +1,4 @@
-import type {MovieData, ResponseMovie} from '@/entities/movie/api/movieApi.types.ts';
+import type {MovieData, ResponseMovie} from '@/entities/movie/api/movieListApi.types.ts';
 
 export type MovieBlockData = {
     title: string;

@@ -1,10 +1,10 @@
-import type {MovieData} from '@/entities/movie/api/movieApi.types.ts';
+import type {MovieData} from '@/entities/movie/api/movieListApi.types.ts';
 import {MovieItem} from '@/widgets/MovieItem/MovieItem.tsx';
 import {useGetDetailsQuery} from '@/shared/api/configApi.ts';
 import type {MovieBlockData} from '@/shared/utils/createMovieCategoryData.ts';
 import s from './MovieList.module.css'
 import {poster_sizes} from '@/shared/constants';
-import {Pagination} from '@/shared/ui/Pagination/Pagination.tsx';
+import {Pagination} from '@/shared/ui/Pagination';
 
 type Props = {
     category?: MovieBlockData | undefined
@@ -32,7 +32,7 @@ export const MovieList = ({
             key={movie.id}
             movie={movie}
             posterSize={poster_sizes.w185}
-            itemWidth="240px"
+            itemWidth="180px"
             baseUrl={baseUrl}
         />
     )
@@ -43,8 +43,6 @@ export const MovieList = ({
 
     return (
         <>
-            {category && <h2>{category.title}</h2>}
-
             <div className={s.list}>
                 {items.map(renderMovie)}
             </div>

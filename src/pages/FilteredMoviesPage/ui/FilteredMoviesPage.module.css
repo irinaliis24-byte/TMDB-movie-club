@@ -1,0 +1,20 @@
+.filteredMoviesPage {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin-top: 80px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: 'filterArea moviesArea';
+}
+
+.filtersArea {
+    grid-area: filterArea;
+}
+
+.moviesArea {
+    grid-area: moviesArea;
+}
