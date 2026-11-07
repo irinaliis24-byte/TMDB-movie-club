@@ -11,12 +11,25 @@ import {createMovieCategoryData} from '@/shared/utils';
 import {useEffect, useState} from 'react';
 import {ButtonLink} from '@/shared/ui/ButtonLink';
 import {BlockTitle} from '@/shared/ui/BlockTitle';
-import {CategoryPath} from '@/app/routing/Path.ts';
+import {Path} from '@/app/routing/Path.ts';
 import Skeleton from 'react-loading-skeleton';
+import {NotFoundPage} from '@/pages/NotFoundPage';
 
 
 export const CategoryMoviesPage = () => {
     const { category } = useParams();
+
+    const validCategories = [
+        'popular',
+        'upcoming',
+        'top-rated',
+        'now-playing',
+    ];
+
+    if (!validCategories.includes(category ?? '')) {
+        return <NotFoundPage />;
+    }
+
     const [currentPage, setCurrentPage] = useState(1)
 
 
@@ -46,10 +59,10 @@ export const CategoryMoviesPage = () => {
     return (
         <section>
             <nav className={s.categoryButtons}>
-                <ButtonLink path={CategoryPath.Popular}>Popular</ButtonLink>
-                <ButtonLink path={CategoryPath.Upcoming}>Upcoming</ButtonLink>
-                <ButtonLink path={CategoryPath.TopRated}>Top Rated</ButtonLink>
-                <ButtonLink path={CategoryPath.NowPlaying}>Now Playing</ButtonLink>
+                <ButtonLink path={Path.Popular}>Popular</ButtonLink>
+                <ButtonLink path={Path.Upcoming}>Upcoming</ButtonLink>
+                <ButtonLink path={Path.TopRated}>Top Rated</ButtonLink>
+                <ButtonLink path={Path.NowPlaying}>Now Playing</ButtonLink>
             </nav>
             <div className={s.wrapper}>
                 <BlockTitle>{currentCategory.title || <Skeleton />}</BlockTitle>

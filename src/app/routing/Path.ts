@@ -1,18 +1,14 @@
 export const Path = {
     MainPage: '/',
     CategoryMovies: '/movies',
-    FilteredMovies: '/filtered-movies',
-    Search: '/search',
-    Favorites: '/favorites',
-    NotFound: '*',
-} as const
-
-
-export const CategoryPath = {
     Popular: '/movies/popular',
     Upcoming: '/movies/upcoming',
     TopRated: '/movies/top-rated',
     NowPlaying: '/movies/now-playing',
+    FilteredMovies: '/filtered-movies',
+    Search: '/search',
+    Favorites: '/favorites',
+    NotFound: '*',
 } as const
 
 // Main — главная/домашняя страница
