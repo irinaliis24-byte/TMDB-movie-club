@@ -6,11 +6,12 @@
 :root {
   --main-gradient: linear-gradient(135deg, #feaf08, #fb25a9);
   --second-gradient: linear-gradient(70deg, #fb25a9, #01b4e4);
-  --bg-gradient: linear-gradient(90deg, rgba(186, 181, 245, 0.8), #0c0018);
+
 
   --font-main: 'Inter';
   --font-heading: 'Bebas Neue';
 
+  --font-size-small: 14px;
   --font-size-base: 16px;
   --font-size-m: 24px;
   --font-size-lg: 36px;
@@ -24,24 +25,27 @@
 
 /* Значения по умолчанию (светлая тема) */
 :root, [data-theme='light'] {
-  --background-color: #fff;
-  --text-color: #0c0018;
+  --background-color: #ffffff;
+  --text-color: rgb(12, 0, 24);
   --accent-color: #feaf08;
   --primary-color: #fb25a9;
   --secondary-color: #9b51d8;
   --tertiary-color: #01b4e4;
-  --card-bg: rgba(186, 181, 245, 0.7);
+  --card-bg: #d3d5f5;
   --border-color: #2d0359;
+  --bg-gradient: linear-gradient(0deg, #ffffff, #BAB5F5FF);
 }
 
 /* Значения для темной темы */
 [data-theme='dark'] {
   --background-color: #0c0018;
-  --text-color: #ffffff;
+  --text-color: rgb(255, 255, 255);
+  --bg-gradient: linear-gradient(0deg, #2d0359, #0c0018);
 }
 
 a {
   text-decoration: none;
+  color: var(--text-color);
 }
 
 a:visited {

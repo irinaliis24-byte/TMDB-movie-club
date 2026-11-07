@@ -6,8 +6,8 @@
 }
 
 .titleLink {
-    display: block;
     font-family: var(--font-main), sans-serif;
+    font-size: var(--font-size-base);
     color: var(--text-color);
     margin-top: 12px;
 }
@@ -21,6 +21,7 @@
 .poster {
     display: block;
     width: 100%;
+    min-height: 278px;
     height: 100%;
     object-fit: cover;
     &:hover {
@@ -34,12 +35,6 @@
     bottom: 10px;
     left: 10px;
     z-index: 1;
-
-    padding: 4px 8px;
-    border-radius: 6px;
-
-    background-color: rgb(0 0 0 / 70%);
-    color: white;
 }
 
 .likeButton {

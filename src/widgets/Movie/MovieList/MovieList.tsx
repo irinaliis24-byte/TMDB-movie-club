@@ -1,5 +1,5 @@
 import type {MovieData} from '@/entities/movie/api/movieListApi.types.ts';
-import {MovieItem} from '@/widgets/MovieItem/MovieItem.tsx';
+import {MovieItem} from '@/widgets/Movie/MovieItem/MovieItem.tsx';
 import {useGetDetailsQuery} from '@/shared/api/configApi.ts';
 import type {MovieBlockData} from '@/shared/utils/createMovieCategoryData.ts';
 import s from './MovieList.module.css'

@@ -1,4 +1,5 @@
 import type {MovieData, ResponseMovie} from '@/entities/movie/api/movieListApi.types.ts';
+import {CategoryPath} from '@/app/routing/Path.ts';
 
 export type MovieBlockData = {
     title: string;
@@ -25,25 +26,25 @@ export const createMovieCategoryData = ({
             title: 'Popular',
             items: popular?.results ?? [],
             total_pages: popular?.total_pages || 1,
-            path: 'popular',
+            path: CategoryPath.Popular,
         },
         {
             title: 'Upcoming',
             items: upcoming?.results ?? [],
             total_pages: upcoming?.total_pages || 1,
-            path: 'upcoming',
+            path: CategoryPath.Upcoming,
         },
         {
             title: 'Top Rated',
             items: topRated?.results ?? [],
             total_pages: topRated?.total_pages || 1,
-            path: 'top-rated',
+            path: CategoryPath.TopRated,
         },
         {
             title: 'Now Playing',
             items: nowPlaying?.results ?? [],
             total_pages: nowPlaying?.total_pages || 1,
-            path: 'now-playing',
+            path: CategoryPath.NowPlaying,
         },
     ];
 };

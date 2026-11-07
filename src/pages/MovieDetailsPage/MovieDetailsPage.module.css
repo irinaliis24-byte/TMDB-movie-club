@@ -1,21 +1,62 @@
 .main {
     display: flex;
     flex-direction: column;
-    gap: 50px;
 }
 
 .movieDetails {
     display: flex;
     gap: 28px;
-    margin-top: 32px;
+    margin: 80px 0 20px;
 }
 
 .moviePoster {
-    max-width: 300px;
+    max-width: 320px;
+    border-radius: 16px;
 }
 
 .movieInfo {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    font-family: var(--font-main), sans-serif;
+}
+
+.movieTitle {
+    font-size: var(--font-size-lg);
+}
+
+.genres {
+    display: flex;
+}
+.genreName {}
+.genreName:not(:last-child)::after {
+    content: "•";
+    color: var(--accent-color);
+    margin: 0 10px;
+}
+
+.shortInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.castBlock {
+    display: flex;
+    gap: 26px;
+    margin-top: 20px;
+}
+
+.backButton {
+    height: fit-content;
+    padding: 4px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background-color: transparent;
+    color: var(--text-color);
+}
+.backButton:hover {
+    background-color: var(--card-bg);
+    color: #0C0018FF;
 }

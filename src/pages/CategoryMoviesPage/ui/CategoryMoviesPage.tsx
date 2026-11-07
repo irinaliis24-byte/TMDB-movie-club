@@ -6,11 +6,13 @@ import {
     useGetTopRatedMoviesQuery,
     useGetUpcomingMoviesQuery
 } from '@/entities/movie/api/movieListApi.ts';
-import {MovieList} from '@/widgets/MovieList/MovieList.tsx';
+import {MovieList} from '@/widgets/Movie/MovieList/MovieList.tsx';
 import {createMovieCategoryData} from '@/shared/utils';
 import {useEffect, useState} from 'react';
 import {ButtonLink} from '@/shared/ui/ButtonLink';
 import {BlockTitle} from '@/shared/ui/BlockTitle';
+import {CategoryPath} from '@/app/routing/Path.ts';
+import Skeleton from 'react-loading-skeleton';
 
 
 export const CategoryMoviesPage = () => {
@@ -38,19 +40,19 @@ export const CategoryMoviesPage = () => {
 
     const categorySections = createMovieCategoryData({popular, nowPlaying, topRated, upcoming})
 
-    const currentCategory = categorySections.find((c) => c.path === category)
+    const currentCategory = categorySections.find((c) => c.path.includes(category  || ''))
     if (!currentCategory) return null;
 
     return (
         <section>
             <nav className={s.categoryButtons}>
-                <ButtonLink path="/movies/popular">Popular</ButtonLink>
-                <ButtonLink path="/movies/upcoming">Upcoming</ButtonLink>
-                <ButtonLink path="/movies/top-rated">Top Rated</ButtonLink>
-                <ButtonLink path="/movies/now-playing">Now Playing</ButtonLink>
+                <ButtonLink path={CategoryPath.Popular}>Popular</ButtonLink>
+                <ButtonLink path={CategoryPath.Upcoming}>Upcoming</ButtonLink>
+                <ButtonLink path={CategoryPath.TopRated}>Top Rated</ButtonLink>
+                <ButtonLink path={CategoryPath.NowPlaying}>Now Playing</ButtonLink>
             </nav>
             <div className={s.wrapper}>
-                <BlockTitle>{currentCategory.title}</BlockTitle>
+                <BlockTitle>{currentCategory.title || <Skeleton />}</BlockTitle>
                 <MovieList category={currentCategory} currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </div>
         </section>

@@ -1,0 +1,11 @@
+.wrapper {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.personBlock {
+    display: flex;
+    gap: 18px;
+}

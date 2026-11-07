@@ -1,7 +1,7 @@
 import {SearchMovieForm} from '@/features/searchMovie';
 import {useSearchParams} from 'react-router';
 import {useSearchMoviesByTitleQuery} from '@/entities/movie/api/movieListApi.ts';
-import {MovieList} from '@/widgets/MovieList/MovieList.tsx';
+import {MovieList} from '@/widgets/Movie/MovieList/MovieList.tsx';
 import {useEffect, useState} from 'react';
 import {BlockTitle} from '@/shared/ui/BlockTitle';
 import s from './SearchPage.module.css'

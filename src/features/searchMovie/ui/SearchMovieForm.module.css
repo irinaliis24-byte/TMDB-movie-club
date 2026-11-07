@@ -28,4 +28,13 @@
     font-size: 12px;
     border: none;
     padding: 4px 16px;
+    transition: box-shadow 0.3s ease;
+
+    &:disabled {
+        opacity: 0.6;
+    }
+
+    &:hover {
+        box-shadow: 0 0 4px var(--accent-color);
+    }
 }

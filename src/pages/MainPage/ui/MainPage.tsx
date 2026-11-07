@@ -10,7 +10,7 @@ import {
 import {useEffect, useState} from 'react';
 import type {MovieData} from '@/entities/movie/api/movieListApi.types.ts';
 import {useGetDetailsQuery} from '@/shared/api/configApi.ts';
-import {MoviesBlock} from '@/pages/MainPage/ui/MoviesBlock/MoviesBlock.tsx';
+import {MoviesBlock} from '@/widgets/Movie/MoviesBlock/MoviesBlock.tsx';
 import {createMovieCategoryData} from '@/shared/utils/createMovieCategoryData.ts';
 import {ButtonLink} from '@/shared/ui/ButtonLink';
 
@@ -54,6 +54,6 @@ export const MainPage = () => {
                 <ButtonLink path={`/movie/${coverMovie.id}`}>About</ButtonLink>
             </div>
         </section>
-        {movieBlockData.map((item) => <MoviesBlock key={item.title} blockData={item} baseUrl={baseUrl}/>)}
+        {movieBlockData.map((item) => <MoviesBlock key={item.title} path={item.path} title={item.title} items={item.items} baseUrl={baseUrl}/>)}
     </section>
 }

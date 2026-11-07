@@ -3,8 +3,8 @@ import { z } from "zod";
 const collectionSchema = z.object({
     id: z.number(),
     name: z.string(),
-    poster_path: z.string(),
-    backdrop_path: z.string(),
+    poster_path: z.string().nullable(),
+    backdrop_path: z.string().nullable(),
 });
 
 const genreSchema = z.object({
@@ -32,7 +32,7 @@ const spokenLanguageSchema = z.object({
 
 export const responseMovieByIdSchema = z.object({
     adult: z.boolean(),
-    backdrop_path: z.string(),
+    backdrop_path: z.string().nullable(),
     belongs_to_collection: collectionSchema.nullable(),
     budget: z.number(),
     genres: z.array(genreSchema),
@@ -44,7 +44,7 @@ export const responseMovieByIdSchema = z.object({
     original_title: z.string(),
     overview: z.string(),
     popularity: z.number(),
-    poster_path: z.string(),
+    poster_path: z.string().nullable(),
     production_companies: z.array(productionCompanySchema).nullable(),
     production_countries: z.array(productionCountrySchema).nullable(),
     release_date: z.string(),

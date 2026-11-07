@@ -5,6 +5,7 @@ import {useAppDispatch, useAppSelector} from '@/app/model/hooks';
 import {selectIsFavorite, toggleFavorite} from '@/pages/FavoritesPage/model/favoritesSlice.ts';
 import {Link} from 'react-router';
 import {Icon} from '@/shared/ui/Icon/Icon.tsx';
+import {RatingLabel} from '@/shared/ui/RatingLabel/RatingLabel.tsx';
 
 type MovieItemProps = {
     movie: FavoriteMovie
@@ -33,12 +34,12 @@ export const MovieItem = ({movie, baseUrl, posterSize, itemWidth}: MovieItemProp
         <div className={s.cover}>
             <Link to={`/movie/${movie.id}`}>
                 <img src={posterSrc} alt={imageAlt} className={s.poster}/>
-                {movie.vote_average > 0 && <span className={s.rating}>{movie.vote_average.toFixed(1)}</span>}
+                {movie.vote_average > 0 && <span className={s.rating}><RatingLabel voteAverage={movie.vote_average}/></span>}
             </Link>
             <button className={`${s.likeButton} ${isFavorite ? s.liked : s.default}`} onClick={onToggle}>
                 <Icon iconId={'heart'} width={'25px'} height={'25px'} viewBox={'0 0 25 25'} fill={isFavorite ? 'red' : undefined} />
             </button>
         </div>
-        <Link to={`/movie/${movie.id}`} className={s.titleLink}><h3>{movie.title}</h3></Link>
+        <Link to={`/movie/${movie.id}`}><h2 className={s.titleLink}>{movie.title}</h2></Link>
     </div>
 }

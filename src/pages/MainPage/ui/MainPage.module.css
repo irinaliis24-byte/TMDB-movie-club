@@ -69,6 +69,5 @@
     font-size: var(--font-size-base);
     align-self: end;
     color: var(--text-color);
-    font-weight: bold;
     z-index: 1;
 }

@@ -1,6 +1,9 @@
 import {useGetGenresQuery} from '@/entities/genres/api/genresApi.ts';
 import {RatingRange} from '@/features/filterMovie/ui/Filters/RatingRange/RatingRange.tsx';
 import s from './Filters.module.css'
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
+import {FilterBox} from '@/widgets/Skeleton/FilterBox.tsx';
 
 const sortByOptions = [
     {value: 'popularity.desc', label: 'Popularity Descending'},
@@ -37,7 +40,7 @@ export const Filters = ({
                             setSortBy,
                             onReset,
                         }: Props) => {
-    const {data} = useGetGenresQuery();
+    const {data, isLoading} = useGetGenresQuery();
     const genreList = data?.genres ?? [];
 
     const toggleGenre = (genreId: string) => {
@@ -68,7 +71,8 @@ export const Filters = ({
                 </select>
             </label>
 
-            <ul id="with_genres" className={s.genresList}>
+            {isLoading ? <Skeleton count={10} height={32} borderRadius={20} wrapper={FilterBox}/> :
+                <ul id="with_genres" className={s.genresList}>
                 {genreList.map((genreItem) => {
                     const isSelected = genres.includes(String(genreItem.id));
 
@@ -84,7 +88,7 @@ export const Filters = ({
                         </li>
                     );
                 })}
-            </ul>
+            </ul>}
 
             <div style={{marginTop: 16}}>
                 <h4 className={s.labelSort}>Rating range:</h4>

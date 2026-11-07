@@ -1,4 +1,4 @@
-import {MovieItem} from '@/widgets/MovieItem/MovieItem.tsx';
+import {MovieItem} from '@/widgets/Movie/MovieItem/MovieItem.tsx';
 import {poster_sizes} from '@/shared/constants';
 import {useGetDetailsQuery} from '@/shared/api/configApi.ts';
 import {useAppSelector} from '@/app/model/hooks';

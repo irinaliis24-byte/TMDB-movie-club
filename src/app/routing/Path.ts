@@ -7,6 +7,14 @@ export const Path = {
     NotFound: '*',
 } as const
 
+
+export const CategoryPath = {
+    Popular: '/movies/popular',
+    Upcoming: '/movies/upcoming',
+    TopRated: '/movies/top-rated',
+    NowPlaying: '/movies/now-playing',
+} as const
+
 // Main — главная/домашняя страница
 // Category Movies — страница с выбором различных категорий
 // Filtered Movies — страница, на которой можно фильтровать и сортировать фильмы по различным условиям

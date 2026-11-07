@@ -1,7 +1,7 @@
 import { BlockTitle } from '@/shared/ui/BlockTitle';
 import s from './FilteredMoviesPage.module.css';
 import { Filters } from '@/features/filterMovie';
-import { MovieList } from '@/widgets/MovieList/MovieList.tsx';
+import { MovieList } from '@/widgets/Movie/MovieList/MovieList.tsx';
 import { useGetFilteredMoviesQuery } from '@/entities/movie/api/movieListApi.ts';
 import { useSearchParams } from 'react-router';
 import {useDebounceValue} from '@/shared/hooks/useDebounceValue.ts';
@@ -25,7 +25,7 @@ const parseGenres = (value: string | null): string[] =>
 
 const parseRating = (value: string | null, fallback: number): number => {
     const parsed = Number(value);
-    return Number.isFinite(parsed) ? parsed : fallback;
+    return parsed !== 0 ? parsed : fallback;
 };
 
 const getFilterStateFromParams = (params: URLSearchParams): FilterState => ({
